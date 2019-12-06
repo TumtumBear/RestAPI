@@ -2531,19 +2531,19 @@ class fxcmpy(object):
     def __on_price_update__(self, msg):
         data = json.loads(msg)
         symbol = data['Symbol']
-        date = pd.to_datetime(int(data['Updated']), unit='ms')
-        temp_data = pd.DataFrame([data['Rates']],
-                                 columns=['Bid', 'Ask', 'High', 'Low'],
-                                 index=[date])
-        if symbol not in self.prices:
-            self.prices[symbol] = temp_data
-        else:
-            self.prices[symbol] = pd.concat([self.prices[symbol], temp_data])
-            if self.max_prices is not None and (len(self.prices[symbol]) > 
-                                                self.max_prices):
-                msg = 'Max. length of prices exceeded (%s), dropping oldest.'
-                self.logger.info(msg % self.max_prices)
-                self.prices[symbol] = self.prices[symbol].iloc[-self.max_prices:]
+        #date = pd.to_datetime(int(data['Updated']), unit='ms')
+        #temp_data = pd.DataFrame([data['Rates']],
+        #                         columns=['Bid', 'Ask', 'High', 'Low'],
+        #                         index=[date])
+        #if symbol not in self.prices:
+        #    self.prices[symbol] = temp_data
+        #else:
+        #    self.prices[symbol] = pd.concat([self.prices[symbol], temp_data])
+        #    if self.max_prices is not None and (len(self.prices[symbol]) >
+        #                                        self.max_prices):
+        #       msg = 'Max. length of prices exceeded (%s), dropping oldest.'
+        #        self.logger.info(msg % self.max_prices)
+        #        self.prices[symbol] = self.prices[symbol].iloc[-self.max_prices:]
 
         if symbol in self.add_callbacks:
             callbacks = self.add_callbacks[symbol]
@@ -2552,7 +2552,8 @@ class fxcmpy(object):
                     # t = Thread(target=callbacks[func],
                     #           args=(data, self.prices[symbol]))
                     # t.start()
-                    callbacks[func](data, self.prices[symbol])
+                    # #callbacks[func](data, self.prices[symbol])
+                    callbacks[func](data)
                 except:
                     self.logger.error('Call of %s raised an error:' % func)
                     self.logger.error(sys.exc_info()[0])
