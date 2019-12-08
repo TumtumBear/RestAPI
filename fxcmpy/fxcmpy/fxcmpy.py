@@ -2555,6 +2555,7 @@ class fxcmpy(object):
                     # #callbacks[func](data, self.prices[symbol])
                     callbacks[func](data)
                 except:
+                    print('Call of %s raised an error:' % func)
                     self.logger.error('Call of %s raised an error:' % func)
                     self.logger.error(sys.exc_info()[0])
                     self.logger.error(sys.exc_info()[1])
