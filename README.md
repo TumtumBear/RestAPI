@@ -27,7 +27,7 @@ FXCM's trading hours vary by product. For forex, trading opens on Sundays betwee
 7.	Download Rest API pdf documents at <a href="https://apiwiki.fxcorporate.com/api/RestAPI/Socket%20REST%20API%20Specs.pdf">here</a>
 8. Start coding.  You will need to reference the <a href="https://socket.io/docs/client-api/">socket.io library</a> in your code. 
    a.	Using Javascript, click <a href="https://www.npmjs.com/package/socket.io">here</a>
-   b.	 Using Python, click <a href="https://pypi.python.org/pypi/socketIO-client">here</a>
+   b.	 Using Python, click <a href="https://github.com/miguelgrinberg/python-socketio">here</a>
 
 
 ## How to connect:
@@ -164,6 +164,22 @@ what is <a href="https://www.quantstart.com/qstrader">QSTrader?</a>
 3. Building/back testing RSI strategy via RestAPI at <a href="https://apiwiki.fxcorporate.com/api/StrategyRealCaseStudy/RestAPI/RsiStrategy.zip">here</a>.
 4. Building/back testing Moving Average Crossover strategy via RestAPI at [Here](https://apiwiki.fxcorporate.com/api/StrategyRealCaseStudy/RestAPI/Moving_Average_Crossover_Strategy.zip)
 5. One video demonstrate how to backtest strategies in Visual Studio via FXCM data On QuantConnect LEAN platform at <a href="https://www.youtube.com/watch?v=m6llfznP4d4">here</a>
+
+## Release: 
+#### 01/12/2020:
+We did a release on demo on 1/12/2020 to improve the Rest API.
+With that said, Our REST API wrapper fxcmpy has been updated, you need to install the latest fxcmpy version at 1.2.6.
+Here is the link where you can find the library: https://pypi.org/project/fxcmpy/#files
+Please have in mind that just with pip install fxcmpy it might not work as it won’t update the library, please use below command.
+
+pip install python-socketio
+
+pip install –U fxcmpy
+
+#### 01/24/2020:
+We will release to live account coming weekend at 01/24/2020. 
+Please refer to the above release and make sure your code is working on demo and get prepared.
+Please contact us at api@fxcm.com if you have any questions. 
 
 ## Note:
 o	This is for personal use and abides by our [EULA](https://www.fxcm.com/uk/forms/eula/)
